@@ -279,7 +279,9 @@
       { "name": "Zimbabwe", "code": "ZW" }
     ]
     console.log("List of countries in the world", countries);
+sessionStorage.setItem('countries_arr',JSON.stringify(countries))
 
+console.log(sessionStorage.getItem('countries_arr'));
     function shuffle(list) {
   list.sort(()=>{
     
@@ -293,9 +295,7 @@ function listEntries(){
   
    list.innerHTML='';
   
-  for(var i=0;i<countries.length;i++){
-    countryNames.push(countries.name)// deep copy
-  }
+   
     for(var i=0;i<countries.length;i++){
 countryNames[i]=countries[i].name;//Replace this list's entries with country names
 
@@ -308,6 +308,7 @@ for(var i=0;i<50;i++){
 console.log(countryNames[i])// display 50 contents
 list.innerHTML+='<li>'+countryNames[i]+'</li>'
 } 
+sessionStorage.setItem('countries_name',countryNames);
 
 
 }
