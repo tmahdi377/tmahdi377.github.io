@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Test AJAX page</title>
+  <link rel="stylesheet" type="text/css" href="./lab_styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="header">Test AJAX page</div>
+      <button class="button" onclick="loadData()">Load Some JSON</button>
+      <div class="content"></div>
+      <div class="footer"></div>
+    </div>
+  </div>
+  <script>
+     function shuffle(list) {
+  var newArr=[];
+      list.sort(()=>{
+    
+    return Math.random() - 0.5
+    })
+
+    for(var i=0;i<15;i++){
+newArr.push(list[i])
+    }
+   return newArr; 
+};
+
+  var list= document.createElement('OL');
+          document.querySelector('.content').appendChild(list);
+    
+    var response=[];
+    function loadData() {
+      fetch('ajax_sample.json')
+        .then(res => res.json())
+        .then(res => {
+          response=res;
+          return res.map(c => c.name)
+          
+          })
+        .then((names) =>{ 
+         /**/
+         
+          
+          list.innerHTML='';
+          var arr=shuffle(response);
+          
+          for(var i=0;i<arr.length;i++){
+          
+          list.innerHTML+='<li>'+arr[i].code+' '+arr[i].name +'</li>'
+
+          }
+
+
+       return  
+
+        })
+        
+    }
+  </script>
+</body>
+
+</html>
