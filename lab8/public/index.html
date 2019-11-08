@@ -36,7 +36,7 @@ inst.push(res.data[i])
         }).then((res)=>{
           for(var i=0;i<res.length;i++){
           
-          list.innerHTML+='<li>'+'course_id: '+res[i].course_id+'</li>'
+          list.innerHTML+='<li>'+'course_id: '+res[i].course_id+' '+res[i].name+'</li>'
          
           }
 return res;
